@@ -18,14 +18,12 @@ while choice != 5:
         print()
         print("Its your up to date task list:")
         print()
+        file = open("Day.txt" , "r")
+        for line in file.readlines():
+            list.append(line.strip())
         for task in list:   
             print(str(index) + " " + task) 
             index += 1
-        file = open("Day.txt" , "r")
-        for line in file.readlines():
-            print(line)     ##print task
-            index += 1
-            list.append(line)
         file.close
         print()
             
@@ -56,7 +54,7 @@ while choice != 5:
     elif choice == 4:
         file = open("Day.txt","w+")
         for task in list:
-            file.write(str(index) + " " + task + "\n") 
+            file.write(task + "\n") 
             index += 1
         file.close
                     

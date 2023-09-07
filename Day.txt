@@ -1,4 +1,2 @@
-0 Learning Python
-1 Send an email
-2 Cleanup NaaS subnet
-3 Add DNS record
+Send an email
+Cleanup NaaS subnet
