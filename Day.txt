@@ -1,2 +1,1 @@
-Send an email
-Cleanup NaaS subnet
+Add DNS
