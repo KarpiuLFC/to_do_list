@@ -1,18 +1,18 @@
 list = []
 list.append("Learning Python")
 list.append("Learning Terraform")
-new_task = ()
 
 choice = 0
-while choice != 5:
+while choice != 6:
     print("======================================================================") 
-    print("1. Show available tasks")
+    print("1. Show all your tasks")
     print("2. Add task")
     print("3. Remove task")
-    print("4. Save to file")
-    print("5. Exit") 
+    print("4. Save changes")
+    print("5. Export to file")
+    print("6. Exit") 
     print("======================================================================")  
-    choice = int(input("Choose your option [1-5]: "))
+    choice = int(input("Choose your option [1-6]: "))
     index = 0
     
     if choice == 1:
@@ -22,7 +22,7 @@ while choice != 5:
         print()
         print("Its your up to date tasks list:")
         print()
-        file = open("Tasks.txt" , "r") ## "r" - reading
+        file = open("Day.txt" , "r") ## "r" - reading
         for line in file.readlines():
             list.append(line.strip()) ## strip - avoid unnecessary characters
         file.close
@@ -48,9 +48,8 @@ while choice != 5:
         for task in list:   
             print(str(index) + " " + task) 
             index += 1
-        print ()
+        print()
         remove_task = int(input("Provide a number of task that can be remove from the list: "))
-        print ()
         if remove_task == 0:
             print()
             print("Important: You cannot remove task 'Learning Python' !!! It's so much important for you")
@@ -63,6 +62,7 @@ while choice != 5:
             print()
         else:
             list.pop(remove_task)
+            index = 0
             print()
             print("Its your up to date task list:")
             print()
@@ -71,24 +71,29 @@ while choice != 5:
                 index += 1
             print()
             
-            
-        
     elif choice == 4:
-        #remove_mandatory = ["Learning Python" , "Learning Terraform"]
+        print()
+        #remove_mandatory = ["Learning Python" , "Learning Terraform"] - its always there in the list
         list.pop(0)
         list.pop(0)
-        #file_name=str(input("Provide file name: ")) - your own file_name
-        #file = open(file_name,"w+") ## "w" - write
+        file = open("Day.txt","w+") ## "w" - write
+        for task in list:
+            file.write(task + "\n") ## "\n" - with new line
+        file.close
+        print("Changes have been saved")
+        print()
+        
+    elif choice == 5:
+        print()
         file = open("Tasks.txt","w+") ## "w" - write
         for task in list:
             file.write(task + "\n") ## "\n" - with new line
         file.close
-        print()
-        #print("Saved to file: " + file_name + ".txt")
         print("Saved to file: Tasks.txt")
+        print()
      
         
-    elif choice == 5:
+    elif choice == 6:
         print()
         print("Good job! See you next time")   
         print()     
@@ -96,13 +101,6 @@ while choice != 5:
         print()
         print("ERROR: Invalid option")
         print()
-        print("Select number again in range [1-5]!")
+        print("Select number again in range [1-6]!")
         print()
         
-    
-    
-
-        
-    
-
-    
