@@ -1,6 +1,7 @@
 list = []
 list.append("Learning Python")
 list.append("Learning Terraform")
+new_task = ()
 
 choice = 0
 while choice != 5:
