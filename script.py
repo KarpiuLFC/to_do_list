@@ -22,7 +22,7 @@ while choice != 5:
         print()
         print("Its your up to date tasks list:")
         print()
-        file = open("Day.txt" , "r") ## "r" - reading
+        file = open("Tasks.txt" , "r") ## "r" - reading
         for line in file.readlines():
             list.append(line.strip()) ## strip - avoid unnecessary characters
         file.close
@@ -45,7 +45,12 @@ while choice != 5:
            
     elif choice == 3:
         print()
+        for task in list:   
+            print(str(index) + " " + task) 
+            index += 1
+        print ()
         remove_task = int(input("Provide a number of task that can be remove from the list: "))
+        print ()
         if remove_task == 0:
             print()
             print("Important: You cannot remove task 'Learning Python' !!! It's so much important for you")
@@ -72,11 +77,15 @@ while choice != 5:
         #remove_mandatory = ["Learning Python" , "Learning Terraform"]
         list.pop(0)
         list.pop(0)
-        file = open("Day.txt","w+") ## "w" - write
+        #file_name=str(input("Provide file name: ")) - your own file_name
+        #file = open(file_name,"w+") ## "w" - write
+        file = open("Tasks.txt","w+") ## "w" - write
         for task in list:
             file.write(task + "\n") ## "\n" - with new line
         file.close
-        print("Saved to file: Day.txt")
+        print()
+        #print("Saved to file: " + file_name + ".txt")
+        print("Saved to file: Tasks.txt")
      
         
     elif choice == 5:
