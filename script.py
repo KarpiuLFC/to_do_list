@@ -5,7 +5,7 @@ list.append("Learning Terraform")
 choice = 0
 while choice != 6:
     print("======================================================================") 
-    print("1. Show available tasks")
+    print("1. Show all your tasks")
     print("2. Add task")
     print("3. Remove task")
     print("4. Save changes")
@@ -45,6 +45,10 @@ while choice != 6:
            
     elif choice == 3:
         print()
+        for task in list:   
+            print(str(index) + " " + task) 
+            index += 1
+        print()
         remove_task = int(input("Provide a number of task that can be remove from the list: "))
         if remove_task == 0:
             print()
@@ -58,6 +62,7 @@ while choice != 6:
             print()
         else:
             list.pop(remove_task)
+            index = 0
             print()
             print("Its your up to date task list:")
             print()
@@ -66,10 +71,9 @@ while choice != 6:
                 index += 1
             print()
             
-            
-        
     elif choice == 4:
-        #remove_mandatory = ["Learning Python" , "Learning Terraform"]
+        print()
+        #remove_mandatory = ["Learning Python" , "Learning Terraform"] - its always there in the list
         list.pop(0)
         list.pop(0)
         file = open("Day.txt","w+") ## "w" - write
@@ -77,14 +81,16 @@ while choice != 6:
             file.write(task + "\n") ## "\n" - with new line
         file.close
         print("Changes have been saved")
+        print()
         
     elif choice == 5:
-        #remove_mandatory = ["Learning Python" , "Learning Terraform"]
+        print()
         file = open("Tasks.txt","w+") ## "w" - write
         for task in list:
             file.write(task + "\n") ## "\n" - with new line
         file.close
         print("Saved to file: Tasks.txt")
+        print()
      
         
     elif choice == 6:
