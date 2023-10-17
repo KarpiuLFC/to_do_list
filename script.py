@@ -3,15 +3,16 @@ list.append("Learning Python")
 list.append("Learning Terraform")
 
 choice = 0
-while choice != 5:
+while choice != 6:
     print("======================================================================") 
     print("1. Show available tasks")
     print("2. Add task")
     print("3. Remove task")
-    print("4. Save to file")
-    print("5. Exit") 
+    print("4. Save changes")
+    print("5. Export to file")
+    print("6. Exit") 
     print("======================================================================")  
-    choice = int(input("Choose your option [1-5]: "))
+    choice = int(input("Choose your option [1-6]: "))
     index = 0
     
     if choice == 1:
@@ -75,10 +76,18 @@ while choice != 5:
         for task in list:
             file.write(task + "\n") ## "\n" - with new line
         file.close
-        print("Saved to file: Day.txt")
-     
+        print("Changes have been saved")
         
     elif choice == 5:
+        #remove_mandatory = ["Learning Python" , "Learning Terraform"]
+        file = open("Tasks.txt","w+") ## "w" - write
+        for task in list:
+            file.write(task + "\n") ## "\n" - with new line
+        file.close
+        print("Saved to file: Tasks.txt")
+     
+        
+    elif choice == 6:
         print()
         print("Good job! See you next time")   
         print()     
@@ -86,7 +95,7 @@ while choice != 5:
         print()
         print("ERROR: Invalid option")
         print()
-        print("Select number again in range [1-5]!")
+        print("Select number again in range [1-6]!")
         print()
         
     
