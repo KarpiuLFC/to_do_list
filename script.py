@@ -36,7 +36,7 @@ while choice != 5:
         print()
             
     elif choice == 2:
-        print(list)
+        print()
         new_task = input("Insert new task which will be added to the list: ")
         print()
         print("Its your up to date task list:")
@@ -159,6 +159,6 @@ while choice != 5:
         print()
         print("ERROR: Invalid option")
         print()
-        print("Select number again in range [1-6]!")
+        print("Select number again in range [1-5]!")
         print()
         
