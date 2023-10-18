@@ -60,6 +60,8 @@ while choice != 6:
             print("Important: You cannot remove task 'Learning Terraform' !!! It's so much important for you")
             print("Select other option or try to remove other task")
             print()
+        elif remove_task > index:
+            print ("Incorrect value has been provided! Please start your job again")
         else:
             list.pop(remove_task)
             index = 0
@@ -69,6 +71,29 @@ while choice != 6:
             for task in list:
                 print(str(index) + " " + task)     ##print task
                 index += 1
+            print()
+            save=str(input("Do you want to save your changes? (Y/N): "))
+            if save == str("Y"):
+        #remove_mandatory = ["Learning Python" , "Learning Terraform"] - its always there in the list
+                list.pop(0)
+                list.pop(0)
+                #list.clear()
+                file = open("Day.txt","w+") ## "w" - write
+                for task in list:
+                    file.write(task + "\n") ## "\n" - with new line
+                file.close
+                print("Changes have been saved")
+            elif save == str("N"):
+                list.pop(0)
+                list.pop(0)
+                list.append(str(remove_task))
+                file = open("Day.txt","w+") ## "w" - write
+                for task in list:
+                    file.write(task + "\n") ## "\n" - with new line
+                file.close
+                print ("Changes discarded!")
+            else:
+                print("Incorrect value has been provided! Please start your job again")
             print()
             
     elif choice == 4:
