@@ -1,3 +1,7 @@
 Add DNS
+<<<<<<< HEAD
 INC0012345
 CTASK0054321
+=======
+3
+>>>>>>> update_list
