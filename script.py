@@ -18,6 +18,32 @@ while choice != 5: # till selection is not equal 5 continue a below loop - if yo
         list.append(line.strip()) # add value of each line to list of tasks: strip - avoid unnecessary characters
     file.close # close file
     
+    def saving(save): #define function
+        #save=str(input("Do you want to save your changes? (Y/N): ")) # after task is added to the list we ask user if newly updated list will be saved
+        if save == str("Y"): # if user select Y 
+                list.pop(0) # remove_mandatory = ["Learning Python"] its always as a top on the list from the file, but there is still on the list in script engine
+                list.pop(0) # remove_mandatory = ["Learning Terraform"] - its top on the list when "Learning Python" has been removed from the list, but there is still on the list in script engine
+                file = open("Day.txt","w+") # open file with "w" - write
+                for task in list: # for each task 
+                    file.write(task + "\n") # write each task (except mandatories - Python and Terraform) in the file: "\n" - with new line
+                file.close # close file
+                print("Changes have been saved")
+        elif save == str("N"): # if user doesnt want to save
+                list.clear() # remove all entries on the list, nothing on the list except mandatories - Python and Terraform
+                file = open("Day.txt","r") # open file "w" - write
+                for line in file.readlines(): # read all lines in file and add value of the line to the list
+                    list.append(line.strip()) # add value of each line to list of tasks: strip - avoid unnecessary characters, so we have again both mandatories and task kept in the file
+                file.close # close file 
+                file = open("Day.txt","w+") # but open it again "w" - write
+                for task in list: # all previous tasks are saved in the file which is loaded at the begining of the script (while user selects 1)
+                    file.write(task + "\n") # save tasks in the file  "\n" - with new line
+                file.close # close file
+                print ("Changes discarded!")
+        else:
+                print("Incorrect value has been provided! Please start your job again")
+        print()
+        
+    
     try:
         int(choice)/1 # check if provided value is able to be divided by 1 - to avoid incorrect values like 1.5, strings or invalid characters
     except ValueError: # if value error like strings or invalid characters appear then display a below message
@@ -47,29 +73,8 @@ while choice != 5: # till selection is not equal 5 continue a below loop - if yo
             index += 1 # increase value by 1
         print()
         save=str(input("Do you want to save your changes? (Y/N): ")) # after task is added to the list we ask user if newly updated list will be saved
-        if save == str("Y"): # if user select Y 
-                list.pop(0) # remove_mandatory = ["Learning Python"] its always as a top on the list from the file, but there is still on the list in script engine
-                list.pop(0) # remove_mandatory = ["Learning Terraform"] - its top on the list when "Learning Python" has been removed from the list, but there is still on the list in script engine
-                file = open("Day.txt","w+") # open file with "w" - write
-                for task in list: # for each task 
-                    file.write(task + "\n") # write each task (except mandatories - Python and Terraform) in the file: "\n" - with new line
-                file.close # close file
-                print("Changes have been saved")
-        elif save == str("N"): # if user doesnt want to save
-                list.clear() # remove all entries on the list, nothing on the list except mandatories - Python and Terraform
-                file = open("Day.txt","r") # open file "w" - write
-                for line in file.readlines(): # read all lines in file and add value of the line to the list
-                    list.append(line.strip()) # add value of each line to list of tasks: strip - avoid unnecessary characters, so we have again both mandatories and task kept in the file
-                file.close # close file 
-                file = open("Day.txt","w+") # but open it again "w" - write
-                for task in list: # all previous tasks are saved in the file which is loaded at the begining of the script (while user selects 1)
-                    file.write(task + "\n") # save tasks in the file  "\n" - with new line
-                file.close # close file
-                print ("Changes discarded!")
-        else:
-                print("Incorrect value has been provided! Please start your job again")
-        print()
-           
+        saving(save) #call funtion saving
+        
     elif int(choice) == 3: # is user selects 3
         print()
         for task in list:  # for each task on the list
@@ -96,28 +101,7 @@ while choice != 5: # till selection is not equal 5 continue a below loop - if yo
             index = 0
             print()
             save=str(input("Do you want to save your changes? (Y/N): ")) # ask user if he wants to save a changes
-            if save == str("Y"): # if user select Y 
-                list.pop(0) # remove_mandatory = ["Learning Python"] its always as a top on the list from the file, but there is still on the list in script engine
-                list.pop(0) # remove_mandatory = ["Learning Terraform"] - its top on the list when "Learning Python" has been removed from the list, but there is still on the list in script engine
-                file = open("Day.txt","w+") # open a file "w" - write
-                for task in list: # for each task on the list in script engine
-                    file.write(task + "\n") # save task in the file "\n" - with new line
-                file.close # close file
-                print("Changes have been saved")
-            elif save == str("N"): # if user select Y 
-                list.clear() # remove all tasks on the lists
-                file = open("Day.txt","r") # open the file "w" - write
-                for line in file.readlines(): # read all lines in file and add value of the line to the list
-                    list.append(line.strip()) # add value of each line to list of tasks: strip - avoid unnecessary characters, so we have again both mandatories and task kept in the file
-                file.close # close file
-                file = open("Day.txt","w+") # but open again file "w" - write
-                for task in list: # all previous tasks are saved in the file which is loaded at the begining of the script (while user selects 1)
-                    file.write(task + "\n") # save tasks in the file  "\n" - with new line
-                file.close
-                print ("Changes discarded!")
-            else:
-                print("Incorrect value has been provided! Please start your job again")
-            print()
+            saving(save) # call function saving
                    
     elif int(choice) == 4:
         name = str(input("Please provide name of file: ")) # ask user how file will be called
