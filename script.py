@@ -13,7 +13,7 @@ while choice != 5: # till selection is not equal 5 continue a below loop - if yo
     list = [] # definition list of tasks
     list.append("Learning Python") # always start with "Learning Python" and always exists
     list.append("Learning Terraform") # always exists task "Learning Terraform"
-    file = open("Day.txt" , "r") ## open file and "r" - reading
+    file = open("Day.txt" , "a+") ## open file and "r" - reading
     for line in file.readlines(): # read all lines in file and add value of the line to the list
         list.append(line.strip()) # add value of each line to list of tasks: strip - avoid unnecessary characters
     file.close # close file
