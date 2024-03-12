@@ -1,8 +1,13 @@
+Learning Python
+Learning Terraform
 PRH
 Bash tasks to accomplish
+LAB Environment
+Australia DC
 SH1 VPN issue
 Python - _tkinter module and GUI
 Format of files - .yaml, .json, .jinja2
 Teradici VPN
+Prepare Python Demo
 Python boto3 module
 Update yaml_gen to version 1
